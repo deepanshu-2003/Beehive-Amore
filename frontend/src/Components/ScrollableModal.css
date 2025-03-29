@@ -1,0 +1,35 @@
+/* ScrollableModal.css */
+
+/* Ensure the modal dialog is scrollable */
+.modal-dialog-scrollable {
+  max-height: 90vh;
+}
+
+/* Make the modal content scrollable */
+.modal-dialog-scrollable .modal-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* Ensure the modal body is scrollable */
+.modal-dialog-scrollable .modal-body {
+  overflow-y: auto;
+}
+
+/* Custom scrollbar styling for better UX */
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

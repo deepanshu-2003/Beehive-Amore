@@ -1,0 +1,350 @@
+/* Add these new styles at the top */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-page {
+  flex: 1;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 20px 20px 40px;
+  position: relative;
+}
+
+.back-nav {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  width: fit-content; /* Added to constrain width */
+}
+
+.back-nav-button {
+  width: fit-content; /* Added to constrain width */
+  min-width: auto; /* Reset any minimum width */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  white-space: nowrap; /* Prevent text wrapping */
+  max-width: max-content; /* Ensure button only takes necessary width */
+}
+
+.back-nav-button:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.back-nav-button:active {
+  transform: translateY(0);
+}
+
+.back-nav-button .me-2 {
+  font-size: 0.8rem;
+}
+
+/* Loading State */
+.loading {
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 50px;
+  color: #007bff;
+}
+
+/* Account Container */
+.account-container {
+  max-width: 1200px;
+  margin: 60px auto 0;  /* Increased top margin to accommodate back button */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Profile Header Section */
+.profile-header-section {
+  position: relative;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.profile-cover {
+  height: 200px;
+  background: linear-gradient(45deg, #2a2a5a, #4a4a8a);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.profile-avatar-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: -75px auto 20px;
+}
+
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  object-fit: cover;
+  background: #fff;
+}
+
+.edit-avatar {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 35px;
+  height: 35px;
+  background: #007bff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-avatar:hover {
+  transform: scale(1.1);
+  background: #0056b3;
+}
+
+.profile-name {
+  color: #fff;
+  font-size: 2.2rem;
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+.profile-username {
+  color: #a8a8b3;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Profile Cards Container */
+.profile-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  color: #fff;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: background 0.3s ease;
+}
+
+.info-item:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.info-icon {
+  color: #007bff;
+  font-size: 1.2rem;
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-content label {
+  display: block;
+  color: #a8a8b3;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.info-content p {
+  color: #fff;
+  font-size: 1.1rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.verified-icon {
+  color: #28a745;
+  font-size: 1.1rem;
+}
+
+.not-verified-icon {
+  color: #dc3545;
+  font-size: 1.1rem;
+}
+
+/* Loading Animation */
+.loading-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: #007bff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+.loading-text {
+  color: #fff;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Error Container */
+.error-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  padding: 20px;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #ff6b6b;
+}
+
+.error-button {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.error-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 80px 10px 20px;
+  }
+
+  .profile-cover {
+    height: 150px;
+  }
+
+  .profile-avatar-container {
+    width: 120px;
+    height: 120px;
+    margin: -60px auto 15px;
+  }
+
+  .profile-name {
+    font-size: 1.8rem;
+  }
+
+  .profile-cards-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .info-content p {
+    font-size: 1rem;
+  }
+
+  .back-nav {
+    top: 15px;
+    left: 15px;
+    width: fit-content; /* Added to constrain width */
+  }
+
+  .back-nav-button {
+    padding: 6px 15px;
+    font-size: 0.8rem;
+  }
+
+  .account-container {
+    margin-top: 50px;
+  }
+}

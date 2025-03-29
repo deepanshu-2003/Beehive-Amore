@@ -1,0 +1,40 @@
+/* Global Bootstrap Modal Overrides */
+
+/* Force all modals to be scrollable */
+.modal-dialog {
+  max-height: 90vh !important;
+}
+
+.modal-content {
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+}
+
+/* Ensure modal body is scrollable */
+.modal-body {
+  overflow-y: auto !important;
+}
+
+/* Override Bootstrap's modal styles with !important to ensure they take effect */
+.modal-open {
+  overflow: hidden !important;
+  padding-right: 0 !important;
+}
+
+/* Add these styles to ensure the modal is properly positioned */
+.modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 1050 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  outline: 0 !important;
+}
+
+/* Target verification modal specifically with higher specificity */
+.verification-modal .modal-content {
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+}
