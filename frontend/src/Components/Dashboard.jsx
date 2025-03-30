@@ -79,7 +79,7 @@ const Dashboard = () => {
         setLoading(prev => ({ ...prev, courses: true }));
         setError(prev => ({ ...prev, courses: null }));
         
-        const token = localStorage.getItem('auth_token');
+        const token = localStorage.getItem('auth_token') || null;
         if (!token) {
           setError(prev => ({ ...prev, courses: 'Authentication required' }));
           setLoading(prev => ({ ...prev, courses: false }));
@@ -88,7 +88,7 @@ const Dashboard = () => {
         
         const response = await axios.get(
           `${import.meta.env.VITE_BACKEND_URL}/dashboard/courses`,
-          { headers: { auth_token: token } }
+          {headers: { auth_token: token } }
         );
         
         if (response.data.success) {
