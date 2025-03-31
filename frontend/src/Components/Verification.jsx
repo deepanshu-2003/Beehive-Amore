@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
-  Modal,
   Button,
   Form,
   InputGroup,
   Spinner,
   Alert,
 } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import "./Verification.css";
 import { useNavigate } from "react-router-dom";
+import PhoneInput from "react-phone-number-input";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import "./Verification.css";
-import PhoneInput from "react-phone-number-input";
 
 // Add styled components or inline styles here
 const phoneInputStyles = `
@@ -71,6 +72,10 @@ const phoneInputStyles = `
   .verification-modal .form-control:disabled {
     background-color: #e9ecef;
     opacity: 1;
+  }
+  
+  .modal-content{
+   display : unset !important;
   }
 `;
 
@@ -489,21 +494,30 @@ const Verification = ({ show, onHide, onSuccess }) => {
   return (
     <>
       <style>{phoneInputStyles}</style>
-      <Modal 
+      <Modal
         show={show}
         onHide={onHide}
         centered
-        className="verification-modal" 
+        className="verification-modal"
+        style={{ maxHeight: '90vh', overflow: 'auto' }}
       >
-        <Modal .Header closeButton>
-          <Modal .Title>Course Enrollment</Modal.Title>
+        <Modal.Header closeButton style={{ borderBottom: '1px solid #dee2e6', padding: '15px 20px' }}>
+          <Modal.Title>Course Enrollment</Modal.Title>
         </Modal.Header>
-        <Modal .Body>
+        <Modal.Body style={{ 
+          flex: 1,
+          padding: '20px',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '1rem',
+          overflowY: 'auto',
+          overflowX: 'hidden'
+        }}>
           {step === 1 && renderStep1()}
           {step === 2 && renderStep2()}
           {message && <Alert variant={message.type}>{message.text}</Alert>}
         </Modal.Body>
-        <Modal .Footer>
+        <Modal.Footer style={{ borderTop: '1px solid #eee' }}>
           {step > 1 && (
             <Button
               variant="secondary"

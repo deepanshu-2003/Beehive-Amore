@@ -308,24 +308,22 @@ const Dashboard = () => {
                   {courses.map(course => (
                     <div key={course.id} className="course-item">
                       <div className="course-image">
-                        <img src={course.thumbnail || 'https://via.placeholder.com/300x160'} alt={course.title} />
+                        <img src={course.course_img || 'https://via.placeholder.com/300x160'} alt={course.course_name} />
                       </div>
                       <div className="course-details">
-                        <h3 className="course-title">{course.title}</h3>
+                        <h3 className="course-title">{course.course_name}</h3>
                         <div className="course-info">
                           <span>
-                            <FontAwesomeIcon icon={faClock} /> {course.duration || 'N/A'}
+                            <FontAwesomeIcon icon={faClock} /> {course.course_duration || 'N/A'}
                           </span>
                           <span>
-                            <FontAwesomeIcon icon={faCalendarAlt} /> {new Date(course.purchaseDate).toLocaleDateString()}
+                            <FontAwesomeIcon icon={faCalendarAlt} /> 
+                            Purchased: {new Date(course.purchaseDate).toLocaleDateString()}
                           </span>
-                        </div>
-                        <div className="course-progress">
-                          <div className="d-flex justify-content-between align-items-center mb-1">
-                            <small>Progress</small>
-                            <small>{course.progress || 0}%</small>
-                          </div>
-                          <ProgressBar now={course.progress || 0} variant="primary" />
+                          <span>
+                            <FontAwesomeIcon icon={faHourglassHalf} /> 
+                            Expires: {new Date(course.expiryDate).toLocaleDateString()}
+                          </span>
                         </div>
                         <div className="course-actions">
                           <span className={`course-status ${course.completed ? 'status-completed' : 'status-active'}`}>
@@ -334,7 +332,7 @@ const Dashboard = () => {
                                 <FontAwesomeIcon icon={faCheckCircle} /> Completed
                               </>
                             ) : (
-                              <>In Progress</>
+                              <></>
                             )}
                           </span>
                           <Link to={`/courses/${course.id}`} className="btn btn-sm btn-primary">

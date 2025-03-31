@@ -10,7 +10,7 @@ const courseMemberSchema = new Schema({
     },
     course: {
         type: Schema.Types.ObjectId,
-        ref: 'Course',
+        ref: 'courses',
         required: true
     },
     purchaseDate: {

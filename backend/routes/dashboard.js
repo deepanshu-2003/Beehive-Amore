@@ -4,6 +4,7 @@ const User = require("../models/users");
 const Notification = require("../models/notification");
 const Message = require("../models/message");
 const Course = require("../models/courses");
+const CourseMember = require("../models/courseMember");
 const Placement = require("../models/placements");
 const fetchUser = require("../middleware/fetchUser");
 const { body, validationResult } = require("express-validator");
@@ -184,14 +185,27 @@ router.get("/courses", fetchUser, async (req, res) => {
     const skip = (page - 1) * limit;
 
     // Find courses where the user is a member
-    const courses = await Course.find({ members: userId })
-      .select("title thumbnail duration price description category rating purchaseDate progress")
+    const courseMemberships = await CourseMember.find({ user: userId })
+      .populate({
+        path: 'course',
+        select: 'course_name course_img course_duration price description category rating'
+      })
       .sort({ purchaseDate: -1 })
       .skip(skip)
       .limit(limit);
 
-    const total = await Course.countDocuments({ members: userId });
+const courses = courseMemberships.map(membership => ({
+  ...membership.course._doc,
+  courseName: membership.course.course_name,
+  image: membership.course.course_img,
+  duration: membership.course.course_duration,
+  purchaseDate: membership.purchaseDate,
+  expiryDate: membership.expiryDate,
+  progress: membership.progress
+}));
 
+    const total = await CourseMember.countDocuments({ user: userId });
+    
     res.json({
       courses,
       pagination: {
