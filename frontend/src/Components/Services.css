@@ -13,15 +13,19 @@
 }
 
 .services-header h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
   margin-bottom: 15px;
+  line-height: 1.2;
 }
 
 .services-header .lead {
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
   opacity: 0.9;
   margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Search Box Styling */
@@ -29,6 +33,7 @@
   display: flex;
   justify-content: center;
   margin: 20px 0;
+  padding: 0 15px;
 }
 
 .search-box {
@@ -96,21 +101,8 @@
   z-index: 0;
 }
 
-.services-section::before {
-  width: 300px;
-  height: 300px;
-  top: -150px;
-  right: -150px;
-  /* animation: float 6s ease-in-out infinite; */
-}
 
-.services-section::after {
-  width: 200px;
-  height: 200px;
-  bottom: -100px;
-  left: -100px;
-  /* animation: float 6s ease-in-out infinite reverse; */
-}
+
 
 /*   */
 

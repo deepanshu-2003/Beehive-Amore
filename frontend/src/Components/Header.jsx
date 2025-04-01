@@ -24,6 +24,7 @@ const UserDropdown = ({ isLoggedIn, user = {}, handleLogout }) => {
               <div className="spinner-border spinner-border-sm text-light me-2" role="status">
                 <span className="visually-hidden">Loading...</span>
               </div>
+
             ) : null}
             <img
               src={user?.profileImg || "https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png"}
