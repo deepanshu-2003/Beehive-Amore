@@ -4,7 +4,6 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import hero from "/hero-illustration.png"
 import { showToast } from '../utils/toastUtils'; // Import the centralized toast utility
-import Services from './Services'; // Import the new Services component
 
 const Home = () => {
     const [message, setMessage] = useState('');
@@ -52,13 +51,13 @@ const Home = () => {
                                 <h1 className="display-3 fw-bold mb-4" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.3)'}}>
                                     Transform Your Digital Presence
                                 </h1>
-                                <p className="lead mb-5 opacity-90">
+                                <p className="text-white mb-5 opacity-90">
                                     Data-driven strategies for measurable growth in the digital landscape
                                 </p>
                                 <div className="d-flex gap-3 justify-content-center">
-                                    <a href="#services" className="btn btn-light btn-lg px-5 rounded-pill hover-glow">
+                                    <Link to="/services" className="btn btn-light btn-lg px-5 rounded-pill hover-glow">
                                         Explore Solutions <i className="ms-2 fas fa-arrow-right"></i>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

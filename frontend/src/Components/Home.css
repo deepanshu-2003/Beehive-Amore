@@ -1,11 +1,75 @@
-/* Hero Enhancements */
-.hero-section .btn-outline-light {
-    border-width: 2px;
-    transition: all 0.3s ease;
+/* Minimalist Hero v13 */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    min-height: 720px;
+    /* Animated gradient background */
+    background: linear-gradient(45deg, #2980b9, #6dd5fa, #ffffff);
+    background-size: 300% 300%;
+    animation: gradientAnimation 12s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    margin-top: -80px;
+    overflow: hidden;
 }
 
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    color: #333333; /* Dark text color */
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Optionally target specific text elements like h1, p */
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #2c3e50; /* Darker heading color */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555555; /* Slightly lighter paragraph color */
+}
+
+/* Minimalist Button v13 */
+.hero-section .btn-outline-light {
+    border: none;
+    background-color: #3498db; /* Blue button */
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Minimalist Button Hover v13 */
 .hero-section .btn-outline-light:hover {
-    background: rgba(255,255,255,0.1);
+    background-color: #21618c; /* Darker blue on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Feature Cards - Scoped to home section */
