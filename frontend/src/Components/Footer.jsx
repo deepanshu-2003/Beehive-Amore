@@ -9,8 +9,8 @@ const Footer = () => {
                     <div className="col-md-4 mb-3">
                         <h5 className="text-uppercase text-primary">About Us</h5>
                         <p className="small">
-                            We provide high-quality online courses to help you achieve your career goals. Join us to learn
-                            the latest technologies and boost your skills.
+                            We provide high-quality online or offline courses to help you achieve your career goals. Join us to learn
+                            the latest technologies and boost your skills. We also serve Digital Marketing or coding Services. 
                         </p>
                     </div>
 
@@ -33,11 +33,7 @@ const Footer = () => {
                                     Contact
                                 </a>
                             </li>
-                            <li>
-                                <a href="/faq" className="text-light text-decoration-none">
-                                    FAQ
-                                </a>
-                            </li>
+                            
                         </ul>
                     </div>
 
@@ -45,14 +41,15 @@ const Footer = () => {
                     <div className="col-md-4 mb-3">
                         <h5 className="text-uppercase text-primary">Contact Us</h5>
                         <p className="small mb-1">
-                            <i className="bi bi-geo-alt-fill text-primary"></i> 123 Learning Street, Knowledge City
+                            <i className="bi bi-geo-alt-fill text-primary"></i> Laxmi Cloth Market, 2nd floor, Near Bus Stand, Sonipat (131001)
                         </p>
                         <p className="small mb-1">
-                            <i className="bi bi-envelope-fill text-primary"></i> support@courses.com
+                            <i className="bi bi-envelope-fill text-primary"></i> beehiveamore@gmail.com
                         </p>
                         <p className="small mb-1">
-                            <i className="bi bi-telephone-fill text-primary"></i> +1 (123) 456-7890
+                            <i className="bi bi-telephone-fill text-primary"></i> +91 8571946962 , +91 8571942962
                         </p>
+                        
                     </div>
                 </div>
 
@@ -60,23 +57,26 @@ const Footer = () => {
 
                 {/* Social Media Links */}
                 <div className="text-center">
-                    <a href="#" className="text-light mx-2 text-decoration-none">
+                    <a href="https://www.facebook.com/share/16Cv7gTnnf/" className="text-light mx-2 text-decoration-none" target="_blank" rel="noopener noreferrer">
                         <i className="bi bi-facebook"></i>
                     </a>
-                    <a href="#" className="text-light mx-2 text-decoration-none">
+                    <a href="https://www.youtube.com/@beehiveamore/" className="text-light mx-2 text-decoration-none" target="_blank" rel="noopener noreferrer">
+                        <i className="bi bi-youtube"></i>
+                    </a>
+                    <a href="https://www.twitter.com/BeehiveAmore" className="text-light mx-2 text-decoration-none" target="_blank" rel="noopener noreferrer">
                         <i className="bi bi-twitter"></i>
                     </a>
-                    <a href="#" className="text-light mx-2 text-decoration-none">
+                    <a href="https://www.instagram.com/beehiveamore/" className="text-light mx-2 text-decoration-none" target="_blank" rel="noopener noreferrer">
                         <i className="bi bi-instagram"></i>
                     </a>
-                    <a href="#" className="text-light mx-2 text-decoration-none">
+                    <a href="https://www.linkedin.com/company/BeehiveAmore" className="text-light mx-2 text-decoration-none" target="_blank" rel="noopener noreferrer">
                         <i className="bi bi-linkedin"></i>
                     </a>
                 </div>
 
                 {/* Copyright */}
                 <div className="text-center mt-3">
-                    <small>&copy; 2024 Your Company. All Rights Reserved.</small>
+                    <small>&copy; 2025 Beehive Amore. All Rights Reserved.</small>
                 </div>
             </div>
         </footer>
