@@ -4,6 +4,8 @@ import './Home.css';
 import { Link } from 'react-router-dom';
 import hero from "/hero-illustration.png"
 import { showToast } from '../utils/toastUtils'; // Import the centralized toast utility
+import Footer from "./Footer";
+
 
 const Home = () => {
     const [message, setMessage] = useState('');
@@ -351,6 +353,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </div>
     );
 };
