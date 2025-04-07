@@ -106,9 +106,11 @@ const Header = ({ isLoggedIn, user = {}, handleLogout }) => {
             to="/"
           >
             <img src={logo} alt="Logo" className="logo me-4" />
-            <div className="logo-text" style={{fontFamily:"Bell MT", fontSize:"22px", marginTop:"10px"}}><span style={{color:"Gold"}}>BEE</span>H!VE AMORE</div>
+            <div className="desktop-only">
+              <div className="logo-text" style={{fontFamily:"Bell MT", fontSize:"22px", marginTop:"10px"}}><span style={{color:"Gold"}}>BEE</span>H!VE AMORE</div>
+            </div>
           </Link>
-          
+
           <div
             className="offcanvas offcanvas-start"
             id="offcanvasNavbar"

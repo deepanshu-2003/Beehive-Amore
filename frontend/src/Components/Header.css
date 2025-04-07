@@ -326,11 +326,20 @@ body {
   }
 
   .navbar-brand {
-    margin-right: 20px;
+    margin-right: 0; /* Center the logo */
+    justify-content: center; /* Center the logo */
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .navbar-brand .logo {
+    margin-right: 0; /* Center the logo */
   }
 
   .user-section {
-    padding-right: 10px;
+    padding-right: 5px;
     flex-wrap: wrap; /* Allows wrapping in smaller screens */
   }
 

@@ -56,7 +56,7 @@
   border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25); /* Increased shadow for depth */
   padding: 50px;
-  display: flex;
+  display: flex; 
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
@@ -272,4 +272,8 @@
     padding: 12px 30px;
     font-size: 1.1rem;
   }
+}
+
+.contact-details iframe {
+  width: 100%;
 }
