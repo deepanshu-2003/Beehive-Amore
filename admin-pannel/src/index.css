@@ -1,0 +1,15 @@
+/* Global Modal Scrollability Fix */
+.modal-dialog {
+  max-height: 90vh !important;
+}
+
+.modal-content {
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+}
+
+/* Ensure this is applied with highest priority */
+body .modal-content {
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+}

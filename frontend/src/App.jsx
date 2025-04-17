@@ -16,8 +16,6 @@ import CourseView from "./Components/CourseView";
 import Verification from "./Components/Verification";
 import Dashboard from "./Components/Dashboard";
 import ServiceDetail from "./Components/ServiceDetail";
-import Placements from "./Components/Placements";
-import PlacementView from "./Components/PlacementView";
 import Header from "./Components/Header";
 import Loading from './Components/Loading';
 
@@ -81,8 +79,6 @@ function AppContent() {
           <Route path="/verify" element={<PageWithHeader component={Verification} />} />
           <Route path="/dashboard" element={<PageWithHeader component={Dashboard} />} />
           <Route path="/services/:title" element={<PageWithHeader component={ServiceDetail} />} />
-          <Route path="/placements" element={<PageWithHeader component={Placements} />} />
-          <Route path="/placement/:id" element={<PageWithHeader component={PlacementView} />} />
         </Routes>
       </AuthChecker>
     </>

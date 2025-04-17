@@ -41,7 +41,6 @@ app.use('/course', require('./routes/course'));
 app.use('/general', require('./routes/general'));
 app.use('/payment', require('./routes/payment'));
 app.use('/service', require('./routes/service'));
-app.use('/placement', require('./routes/placement'));
 app.use('/dashboard', require('./routes/dashboard'));
 
 

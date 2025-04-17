@@ -1,27 +1,49 @@
-const axios = require("axios");
 const express = require("express");
 const router = express.Router();
 const User = require("../models/users");
+const path = require('path');
+const fs = require('fs');
 
 
 
 
-// Image proxy for rendering third party images
-// Endpoint to fetch the user image
-router.get("/image-proxy", async (req, res) => {
-    const imageUrl = req.query.url; // Expect the image URL as a query parameter
-    if (!imageUrl) {
-        return res.status(400).send("No image URL provided");
+// Image proxy for serving user-uploaded images from the local filesystem
+router.get("/image-proxy", (req, res) => {
+    const relativeImagePath = req.query.url; // Expect the image path relative to the uploads dir
+    if (!relativeImagePath) {
+        return res.status(400).send("No image path provided");
     }
-    
-    try {
-        const response = await axios.get(imageUrl, { responseType: "arraybuffer" });
-        res.set("Content-Type", "image/jpeg"); // Set the correct image MIME type
-        res.send(response.data);
-    } catch (error) {
-        console.error("Error fetching image:", error);
-        res.status(500).send("Error fetching the image");
+
+    // Construct the absolute path to the image file
+    // Assumes 'uploads' directory is one level above the 'backend' directory
+    const uploadsDir = path.join(__dirname, '../../uploads');
+    const absoluteImagePath = path.join(uploadsDir, relativeImagePath);
+
+    // Basic security check to prevent path traversal
+    if (!absoluteImagePath.startsWith(uploadsDir)) {
+        return res.status(403).send("Forbidden access");
     }
+
+    // Check if file exists and send it
+    fs.access(absoluteImagePath, fs.constants.R_OK, (err) => {
+        if (err) {
+            console.error("Error accessing image or file not found:", absoluteImagePath, err);
+            // Optionally send a default image or just 404
+            // For now, send 404
+            return res.status(404).send("Image not found");
+        }
+
+        // Send the file; Express handles Content-Type based on extension
+        res.sendFile(absoluteImagePath, (err) => {
+            if (err) {
+                console.error("Error sending file:", absoluteImagePath, err);
+                // Avoid sending error details to client unless necessary
+                if (!res.headersSent) {
+                    res.status(500).send("Error serving the image");
+                }
+            }
+        });
+    });
 });
 
 

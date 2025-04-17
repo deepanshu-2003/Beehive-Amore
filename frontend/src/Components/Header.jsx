@@ -128,7 +128,7 @@ const Header = ({ isLoggedIn, user = {}, handleLogout }) => {
             </div>
             <div className="offcanvas-body">
               <ul className="navbar-nav ms-auto">
-                {["Home", "Services", "Courses", "Placements", "About", "Contact"].map(
+                {["Home", "Services", "Courses", "About", "Contact"].map(
                   (menu) => (
                     <li className="nav-item" key={menu}>
                       <Link

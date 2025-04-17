@@ -1,31 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { MessageContext } from '../Context/MessageContext';
+import { useAuth } from '../Context/AuthContext';
+import { showToast } from '../utils/toastUtils';
 import './Login.css';
-import Footer from './Footer';
 import Header from './Header';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { message, setMessage } = useContext(MessageContext);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem('auth_token');
-    if (token) {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      navigate('/home');
-    }
-  }, [isLoggedIn, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -44,15 +29,15 @@ const Login = () => {
       if (!response.ok) {
         const errorMessage =
           data.errors?.map((err) => err.msg).join(', ') || data.error || 'Login failed';
-        setMessage({ type: 'error', text: errorMessage });
+        showToast.error(errorMessage);
         return;
       }
 
-      localStorage.setItem('auth_token', data.auth_token);
-      setMessage({ type: 'success', text: 'Login successful!' });
-      setIsLoggedIn(true);
+      login(data.auth_token);
+      showToast.success('Login successful!');
+      navigate('/home');
     } catch (err) {
-      setMessage({ type: 'error', text: 'An error occurred. Please try again.' });
+      showToast.error('An error occurred. Please try again.');
     }
   };
 
@@ -105,7 +90,6 @@ const Login = () => {
           </button>
         </form>
       </div>
-      <Footer />
     </>
   );
 };

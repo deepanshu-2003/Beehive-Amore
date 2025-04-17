@@ -11,7 +11,7 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 import Spinner from "react-bootstrap/Spinner";
 import Header from "./Header";
 import "./CourseView.css";
-import { MessageContext } from "../Context/MessageContext";
+import { showToast } from "../utils/toastUtils";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -22,7 +22,6 @@ const CourseView = () => {
   const { id } = useParams();
   const [course, setCourse] = useState(null);
   const [reviews, setReviews] = useState([]);
-  const { setMessage } = useContext(MessageContext);
   const [error, setError] = useState(null);
   const [averageRating, setAverageRating] = useState(0);
   const [totalReviews, setTotalReviews] = useState(0);
@@ -933,4 +932,4 @@ const CourseView = () => {
   );
 };
 
-export default CourseView;  
+export default CourseView;
