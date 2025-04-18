@@ -21,7 +21,6 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'auth_token', 'range'],
   exposedHeaders: ['Content-Length', 'Content-Range', 'Accept-Ranges'],
-  credentials: true
 }));
 
 // Increase timeout for video streaming
