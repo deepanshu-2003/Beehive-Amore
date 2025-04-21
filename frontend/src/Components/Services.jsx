@@ -141,9 +141,9 @@ const Services = () => {
   return (
     <>
       {/* Header section with gradient background */}
-      <section className="services-header">
-        <div className="container text-center">
-          <h1>Our Services</h1>
+      <section>
+        <div className="services-header text-center mb-2">
+          <h1 className="display-4 fw-bold mb-2">Our Services</h1>
           <p className="text-white">Explore our wide range of professional services</p>
           
           <div className="search-container">

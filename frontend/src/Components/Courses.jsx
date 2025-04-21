@@ -91,7 +91,7 @@ const Courses = () => {
       <div className="courses-page">
         <div className="container">
           <div className="courses-header text-center mb-5">
-            <h1 className="display-4 text-white fw-bold mb-2">Our Courses</h1>
+            <h1 className="display-4 fw-bold mb-2">Our Courses</h1>
             <p className="text-white lead mb-2">Explore our wide range of professional courses</p>
             <div className="row g-3 justify-content-center" style={{ maxWidth: '900px', margin: '0 auto' }}>
               <div className="col-md-8">

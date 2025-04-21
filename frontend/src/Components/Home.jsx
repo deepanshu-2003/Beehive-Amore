@@ -50,14 +50,15 @@ const Home = () => {
                     <div className="row justify-content-center">
                         <div className="col-lg-8">
                             <div className="glass-card p-5 rounded-4 animate__animated animate__fadeInUp">
-                                <h1 className="display-3 fw-bold mb-4" style={{textShadow: '2px 2px 8px rgba(0,0,0,0.3)'}}>
+                                <h1 className="display-3 fw-bold mb-4 text-golden"> {/* Added text-golden class */}
                                     Transform Your Digital Presence
                                 </h1>
                                 <p className="text-white mb-5 opacity-90">
                                     Data-driven strategies for measurable growth in the digital landscape
                                 </p>
                                 <div className="d-flex gap-3 justify-content-center">
-                                    <Link to="/services" className="btn btn-light btn-lg px-5 rounded-pill hover-glow">
+                                    {/* Applied btn-golden class and adjusted size/padding */}
+                                    <Link to="/services" className="btn btn-golden btn-lg px-5"> 
                                         Explore Solutions <i className="ms-2 fas fa-arrow-right"></i>
                                     </Link>
                                 </div>

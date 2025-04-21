@@ -6,10 +6,10 @@
   margin:8% 10%;
   margin-top:112px;
   text-align: center;
-  color: white!important;
+  color: gold!important;
   border-radius: 0;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(120deg, #000000, #4311cf);
+  background: linear-gradient(120deg, #000000, rgb(39, 39, 39));
 }
 
 

@@ -7,15 +7,66 @@ body {
 }
 
 :root {
-  --gold: gold;
-  --white: #ffffff;
+  --gold: #FFD700;
+  --dark-grey: #000000;
+  --medium-grey: #272727;
+  --accent-blue: #4A90E2;
+  --white: #FFFFFF;
   --black: #000000;
-  --gradient: linear-gradient(120deg, #000000, #4311cf);
-  --hover-bg: rgba(255, 255, 255, 0.1);
-  --dropdown-bg: #1e1e2d;
+  --gradient: linear-gradient(
+    145deg,
+    var(--dark-grey) 0%,
+    var(--medium-grey) 40%,
+    var(--accent-blue) 100%
+  );
+  --hover-bg: linear-gradient(45deg, rgba(74, 144, 226, 0.2), rgba(42, 42, 42, 0.3));
+  --dropdown-bg: linear-gradient(145deg, #2A2A2A, #1A1A1A);
 }
 
 /* Header Styles */
+/* Notification styles */
+.notification-icon-container {
+  position: relative;
+  margin-right: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.glossy-notification-icon {
+  font-size: 1.8rem;
+  color: #fff;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  transition: transform 0.2s ease;
+  background: linear-gradient(145deg, #ffffff33, #ffffff0d);
+  padding: 8px;
+  border-radius: 50%;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.glossy-notification-icon:hover {
+  transform: scale(1.1);
+  background: linear-gradient(145deg, #ffffff4d, #ffffff1a);
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: #ff4757;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
 .custom-header {
   position: fixed;
   top: 0;
@@ -24,12 +75,13 @@ body {
   min-height: 76px;
   max-height:76px;
   z-index: 1000;
-  background: var(--gradient);
+  background-color: var(--dark-grey);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   padding: 10px 0;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Ensure items are distributed correctly */
+  justify-content: space-between;
+  border-bottom: 1px solid var(--gold);
 }
 
 .navbar-brand .logo {
@@ -55,9 +107,9 @@ body {
 .nav-link.active,
 .nav-link:hover {
   color: var(--gold) !important;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.8);
-  background-color: var(--hover-bg);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 8px rgba(255, 215, 0, 0.5); /* Glossy golden text */
+  background: var(--hover-bg); /* Use gradient hover background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255, 255, 255, 0.2); /* Add subtle inset shadow */
 }
 
 .user-section {
@@ -254,9 +306,10 @@ body {
 .offcanvas-start {
   width: 250px;
   max-width: 80%;
-  background-color: var(--dropdown-bg);
-  color: var (--white);
+  background-color: var(--dark-grey);
+  color: var(--white);
   overflow-y: auto;
+  backdrop-filter: blur(10px);
 }
 
 .offcanvas-header {
@@ -327,6 +380,7 @@ body {
 
   .navbar-brand {
     margin-right: 0; /* Center the logo */
+    margin-left: 0px !important;
     justify-content: center; /* Center the logo */
   }
 
@@ -340,6 +394,7 @@ body {
 
   .user-section {
     padding-right: 5px;
+    margin-left: 0;
     flex-wrap: wrap; /* Allows wrapping in smaller screens */
   }
 

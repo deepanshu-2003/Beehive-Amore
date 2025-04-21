@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FiBell } from "react-icons/fi";
 import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 import logo from "/digital.png"; // Adjust the path as needed
@@ -145,7 +146,6 @@ const Header = ({ isLoggedIn, user = {}, handleLogout }) => {
               </ul>
             </div>
           </div>
-          
           <UserDropdown
             isLoggedIn={isLoggedIn}
             user={user}

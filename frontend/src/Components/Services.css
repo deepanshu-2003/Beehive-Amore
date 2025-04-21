@@ -3,13 +3,14 @@
   position: relative;
   padding: 2rem 0;
   border-radius: 10px!important;
-  margin-bottom: 0 !important;
-  margin:8% 10%;
-  color: white!important;
+  color: gold!important;
+  margin-left: 7rem;
+  margin-right: 7rem;
   border-radius: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px goldenrod;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(120deg, #000000, #4311cf);
+  background: linear-gradient(120deg, #000000, rgb(39, 39, 39));
+  margin-top: 120px;
 }
 
 .services-header h1 {
@@ -331,7 +332,7 @@
 @media (max-width: 768px) {
   .services-header {
     padding: 40px 0;
-    margin: 15% 5%;
+    margin-top:7rem !important;
   }
 
   .services-header h1 {
