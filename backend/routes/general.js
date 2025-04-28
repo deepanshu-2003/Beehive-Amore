@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const { check, validationResult } = require('express-validator');
 const User = require("../models/users");
 const path = require('path');
 const fs = require('fs');
+const Enroll = require('../models/Enroll');
+const Contact = require('../models/contact')
 
 
 
@@ -81,6 +84,77 @@ router.get("/validate-username", async (req, res) => {
         return res.json({ valid: false });
     }
 });
+
+
+
+
+router.post('/enroll',
+    [
+        check("name", "Please enter a valid name").not().isEmpty(),
+        check("mobile", "Please enter a valid mobile").not().isEmpty(),
+        check("email", "Please enter a valid Email").not().isEmpty(),
+        check("course", "Please enter a valid course").not().isEmpty(),
+      ],
+      async (req,res) =>{
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        try {
+            const { name, mobile, email, course } = req.body;
+
+            const enrollment = new Enroll({
+                name,
+                mobile,
+                email,
+                course
+            });
+
+            const savedEnrollment = await enrollment.save();
+            res.status(200).json(savedEnrollment);
+
+        } catch (error) {
+            console.error("Error enrolling in course:", error);
+            res.status(500).send("Error enrolling in course");
+        }
+      }
+)
+
+
+router.post('/contact',
+    [
+        check("name", "Please enter a valid name").not().isEmpty(),
+        check("email", "Please enter a valid Email").not().isEmpty(),
+        check("subject", "Please enter a valid subject").not().isEmpty(),
+        check("message", "Please enter a valid message").not().isEmpty(),
+      ],
+      async (req,res) =>{
+        const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+              return res.status(400).json({ errors: errors.array() });
+            }
+
+        try {
+            const { name, email, mobile, subject, message } = req.body;
+
+            const contact = new Contact({
+                name,
+                email,
+                mobile,
+                subject,
+                message
+            });
+
+            const savedContact = await contact.save();
+            res.json(savedContact);
+
+        } catch (error) {
+            console.error("Error saving contact form:", error);
+            res.status(500).send("Error saving contact form");
+        }
+      }
+)
 
 
 module.exports = router;
